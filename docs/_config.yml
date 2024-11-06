@@ -1,8 +1,17 @@
-theme: jekyll-theme-modernist
+theme: minima
 show_downloads: true
 
 # google_analytics:[Your Google Analytics tracking ID]
 
 # Name of website
-title: myProjectTitle
-description: Project for UCLA ECEM202A/CSM213A (Fall 2021)
+title: MyoPose
+description: Project for UCLA ECEM202A (Fall 2024)
+name: "MyoPose Project"
+author: "Andrew Fantino"
+#baseurl: "/CS188-Projects-2023Winter"
+#profile_url: "http://UCLAdeepvision.github.io"
+
+markdown: GFM
+plugins:
+  - jekyll-remote-themes
+  - jekyll-relative-links
