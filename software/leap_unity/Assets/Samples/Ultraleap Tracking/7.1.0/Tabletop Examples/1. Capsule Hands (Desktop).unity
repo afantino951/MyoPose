@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leapProvider: {fileID: 1225848859379569215}
+  saveToCSV: 1
+  maxFlush: 1024
 --- !u!1 &1776077979
 GameObject:
   m_ObjectHideFlags: 0
