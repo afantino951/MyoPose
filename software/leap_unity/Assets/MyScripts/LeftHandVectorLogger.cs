@@ -19,6 +19,9 @@ public class LeftHandVectorLogger : MonoBehaviour
     [Header("The number of samples before flushing the data to the csv Options")]
     public int maxFlush = 1024;
 
+    [SerializeField]
+    public string fileName = "leapData.csv";
+
     private List<string> headers = new List<string>
     {
         "Timestamp",
@@ -58,7 +61,7 @@ public class LeftHandVectorLogger : MonoBehaviour
 
         // Set the file path 
         string dataDirectory = Path.GetFullPath(Path.Combine(Application.dataPath, "../../../data/"));
-        filePath = Path.Combine(dataDirectory, "leapData.csv");
+        filePath = Path.Combine(dataDirectory, fileName);
         
         // Write CSV headers (optional)
         if (!File.Exists(filePath))
