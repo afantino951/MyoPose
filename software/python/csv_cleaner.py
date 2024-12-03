@@ -39,6 +39,9 @@ def interpolate_data(file_path, target_interval=5):
     # Read CSV
     df = pd.read_csv(file_path)
     
+    # Drop thumb_ip angle if it exists
+    df = df.drop(['thumb_ip'], axis=1, errors='ignore')
+    
     # Convert timestamp and millis to total milliseconds
     df['total_millis'] = df.apply(lambda row: parse_timestamp(row['Timestamp'], row['Millis']), axis=1)
     
@@ -105,12 +108,12 @@ def rename_csv(output_dir, ble_file_path, leap_file_path):
 
 if __name__ == "__main__":
 
-    input_dir = "../../data/myo4_env/dirty"
-    output_dir = "../../data/myo4_env/clean"
+    input_dir = "../../data/myo8_rect/dirty"
+    output_dir = "../../data/myo8_rect/clean"
 
-    for i in range(1,10):
-        sample = i
-        ble_file_path = os.path.join(input_dir, f"myo4_env_s{sample}_bleData.csv")
-        leap_file_path = os.path.join(input_dir, f"myo4_env_s{sample}_leapData.csv")
+    for i in range(10):
+        sample = i+1
+        ble_file_path = os.path.join(input_dir, f"myo8_rect_s{sample}_bleData.csv")
+        leap_file_path = os.path.join(input_dir, f"myo8_rect_s{sample}_leapData.csv")
 
         rename_csv(output_dir, ble_file_path, leap_file_path)

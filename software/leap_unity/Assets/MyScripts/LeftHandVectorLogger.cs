@@ -30,7 +30,6 @@ public class LeftHandVectorLogger : MonoBehaviour
         "thumb_tm_flex",
         "thumb_mcp_aa",
         "thumb_mcp_flex",
-        "thumb_ip",
         "index_mcp_aa",
         "index_mcp_flex",
         "index_pip",
@@ -157,15 +156,6 @@ public class LeftHandVectorLogger : MonoBehaviour
         ) * -1) + 0;
         finger_angles.Add(thumb_theta_mcp_aa);
         finger_angles.Add(thumb_theta_mcp_flex);
-
-        // Thumb IP angle can be calculated from theta_mcp_fe
-        float theta_ip = Vector3.SignedAngle(
-            Vector3.Normalize(_thumbIntermediate.NextJoint + _thumbDistal.Direction),
-            Vector3.Normalize(_thumbIntermediate.NextJoint + _thumbIntermediate.Basis.zBasis),
-            Vector3.Normalize(_thumbIntermediate.NextJoint + _thumbIntermediate.Basis.xBasis)
-        );
-        theta_ip *= -1;
-        finger_angles.Add(theta_ip);
 
         // Iterate through the 4 main fingers
         for (int i = 1; i < 5; i++) {

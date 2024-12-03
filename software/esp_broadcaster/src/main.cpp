@@ -180,13 +180,13 @@ char *my_ctime()
   gettimeofday(&tv, 0);
   time_t curtime = tv.tv_sec;
   tm *timeptr = localtime(&curtime);
-  sprintf(result, "%.3s %.3s%3d %.2d:%.2d:%.2d %.3d %d",
+  sprintf(result, "%.3s %.3s%3d %.2d:%.2d:%.2d %d, %.3d",
       wday_name[timeptr->tm_wday],
       mon_name[timeptr->tm_mon],
       timeptr->tm_mday, timeptr->tm_hour,
       timeptr->tm_min, timeptr->tm_sec,
-      (tv.tv_usec/1000),
-      1900 + timeptr->tm_year);
+      1900 + timeptr->tm_year,
+      (tv.tv_usec/1000));
   return result;
 }
 
