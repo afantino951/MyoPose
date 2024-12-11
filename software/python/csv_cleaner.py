@@ -108,12 +108,12 @@ def rename_csv(output_dir, ble_file_path, leap_file_path):
 
 if __name__ == "__main__":
 
-    input_dir = "../../data/myo8_rect/dirty"
-    output_dir = "../../data/myo8_rect/clean"
+    input_dir = "../../data/myo8_env/dirty"
+    output_dir = "../../data/myo8_env/clean"
 
     for i in range(10):
         sample = i+1
-        ble_file_path = os.path.join(input_dir, f"myo8_rect_s{sample}_bleData.csv")
-        leap_file_path = os.path.join(input_dir, f"myo8_rect_s{sample}_leapData.csv")
+        ble_file_path = os.path.join(input_dir, f"s{sample}_bleData.csv")
+        leap_file_path = os.path.join(input_dir, f"s{sample}_leapData.csv")
 
         rename_csv(output_dir, ble_file_path, leap_file_path)

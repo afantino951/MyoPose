@@ -143,7 +143,7 @@ MonoBehaviour:
   leapProvider: {fileID: 1225848859379569215}
   saveToCSV: 1
   maxFlush: 1024
-  fileName: myo8_rect/myo8_rect_s10_leapData.csv
+  fileName: myo8_env/dirty/s10_leapData.csv
 --- !u!1 &1776077979
 GameObject:
   m_ObjectHideFlags: 0
