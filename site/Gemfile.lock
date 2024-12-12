@@ -282,9 +282,9 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   http_parser.rb (~> 0.6.0)
-  jekyll (~> 3.10.0)
   jekyll-feed (~> 0.12)
   jekyll-gfm-admonitions
+  jekyll-include-cache
   jekyll-optional-front-matter
   jekyll-relative-links
   minima (~> 2.5)
