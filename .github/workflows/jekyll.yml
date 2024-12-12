@@ -44,7 +44,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
-        working-directory: ./site  # Change working directory to the site folder
+        working-directory: ./docs  # Change working directory to the site folder
         run: |
               bundle install
               bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -54,7 +54,7 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site/_site  # Specify the path to the generated site
+          path: ./docs/_site  # Specify the path to the generated site
 
   # Deployment job
   deploy:

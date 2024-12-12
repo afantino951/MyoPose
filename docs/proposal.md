@@ -296,7 +296,7 @@ Segmentation](https://arxiv.org/abs/1608.08242)," 2016.
 Controller](https://leap2.ultraleap.com/downloads/leap-motion-controller/),”
 Ultraleap. 
 
-[13 . Song, H. Zeng, and D. Chen, “[Intuitive Environmental Perception
+[13] . Song, H. Zeng, and D. Chen, “[Intuitive Environmental Perception
 Assistance for Blind Amputees Using Spatial Audio
 Rendering](https://ieeexplore.ieee.org/document/9693953),” IEEE Transactions
 on Medical Robotics and Bionics, vol. 4, no. 1, pp. 274–284, 2022, doi:

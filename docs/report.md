@@ -180,8 +180,8 @@ loss_{thumb} = (\hat{\theta}_{th,mcp,aa} - \theta_{th,mcp,aa})^2 + \newline
 $$
 
 > **Note:** [[CITE]()] has what I assume is a typo in the last term of
-$loss_{thumb}$. It has the last term as $(\hat{\theta}_{th,tm,f/e} -
-*\theta_{th,mcp,f/e})^2$, which would not make sense.
+$$loss_{thumb}$$. It has the last term as $$(\hat{\theta}_{th,tm,f/e} -
+*\theta_{th,mcp,f/e})^2$$, which would not make sense.
 
 $$
 loss_{smoothness} = \| \nabla\hat{\theta_t} - \nabla\hat{\theta}_{t-1}\|_2^2
@@ -195,48 +195,6 @@ loss = loss_{mcp,f/e} + loss_{mcp,aa} + \newline
 loss_{pip} + loss_{thumb} + loss_{smoothness}
 $$
 
-This custom loss is implemented as a `nn.Module` as shown below:
-
-```python
-class NeuroPoseLoss(nn.Module):
-  def __init__(self):
-    super(NeuroPoseLoss, self).__init__()
-
-  def forward(self, output, target):
-    mcp_aa_inds = [4, 7, 10, 13]
-    mcp_flex_inds = [5, 8, 11, 14]
-    pip_inds = [6, 9, 12, 15]
-  
-    loss_mcp_aa = 0
-    for i in mcp_aa_inds:
-      loss_mcp_aa += torch.pow((output[:,:,:,i] - target[:,:,:,i]), 2)
-    loss_mcp_aa = torch.mean(loss_mcp_aa)
-  
-    loss_mcp_fe = 0
-    for i in mcp_flex_inds:
-      loss_mcp_fe += torch.pow((output[:,:,:,i] - target[:,:,:,i]), 2) 
-    loss_mcp_fe = torch.mean(loss_mcp_fe)
-  
-    loss_pip_fe = 0
-    for i in pip_inds:
-      loss_pip_fe += torch.pow((output[:,:,:,i] - target[:,:,:,i]), 2) 
-    loss_pip_fe = torch.mean(loss_pip_fe)
-  
-    loss_thumb_tm_aa = torch.mean(torch.pow(output[:,:,:,0] - target[:,:,:,0], 2))
-    loss_thumb_tm_fe = torch.mean(torch.pow(output[:,:,:,1] - target[:,:,:,1], 2))
-    loss_thumb_mcp_aa = torch.mean(torch.pow(output[:,:,:,2] - target[:,:,:,2], 2))
-    loss_thumb_mcp_fe = torch.mean(torch.pow(output[:,:,:,3] - target[:,:,:,3], 2))
-    loss_thumb = loss_thumb_mcp_aa + loss_thumb_mcp_fe + loss_thumb_tm_aa + loss_thumb_tm_fe
-
-  
-    # TODO: Figure out how to do this
-    # loss_smoothness = output.grad - prev_output.grad
-    loss_smoothness = 0
-  
-    loss = torch.mean(loss_mcp_aa + loss_mcp_fe + loss_pip_fe + loss_thumb + loss_smoothness)
-  
-    return loss
-```
 
 
 ### Myo-BERT Transformer Implementation
