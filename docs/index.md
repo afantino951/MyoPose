@@ -27,5 +27,5 @@ data and sample window size.
 
 * [Proposal](proposal)
 * [Midterm Checkpoint Presentation Slides](media/slides/project_proposal_slides.pdf)
-* [Final Presentation Slides](http://)
+* [Final Presentation Slides](media/slides/final_presentation_slides.pdf)
 * [Final Report](report)
